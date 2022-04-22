@@ -121,7 +121,9 @@ class ChatClient(ChatEventHandler):
                 self.remove_channel(channel_name)
             else:
                 self.logger.warning(f"Bot was timeout on channel {channel_name} for {ban_duration} seconds")
-                self.remove_channel(channel_name)
+                start = time.time ()
+                while time.time () < start + {ban_duration} :
+                    pass
         elif cmd[1] == "PRIVMSG":
             chat_msg = ChatMessage(cmd[0].split("!")[0], tags.get('display-name'), tags.get("user-id"), tags.get("mod"),
                                    tags.get("color"), tags.get("badges"), tags.get("id"), content, channel_name)
